@@ -7,13 +7,14 @@
     <style>
         body{
          background-color: #071040;
-   background-image: linear-gradient(43deg, #071040 0%, #760f2d 46%, #fc0e85 100%);
+   background-image: linear-gradient(43deg, #071040 0%, #320311 46%, #fc0e85 100%);
    height:100vh;
   }
   .heading{
     color:white;
     font-size:50px;
     text-align: center;
+    padding-top: 20px;
   }
   .input-container{
     background-color: white;
@@ -21,6 +22,8 @@
     width: 400px;
     display: block;
     margin: auto;
+    border-radius: 50px;
+    box-shadow: 2px 0px 0px 2px hsl(338, 96%, 19%);
   }
   .input-box{
     padding: 5px;
@@ -31,13 +34,15 @@
   }
   .heading2{
     text-align: center;
-    padding-top: 30px;
     font-size: 25px;
+  }
+  .padding{
+    padding-top: 30px;
   }
   .btn{
     display: block;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px;
     border-radius: 50px;
     border: none;
@@ -48,26 +53,39 @@
    
   }
   
+  
     </style>
 </head>
 <body>
-    <h1 class="heading">simple Intrest Calculator</h1>
+    <h1 class="heading">Simple Intrest Calculator</h1>
     <div class="input-container">
-        <h3 class="heading2 ">Initial-Investment(Rs):</h3>
-        <input class="input-box" type="Initial-Investment" id="num1"  
-        placeholder="Enter initial investment" >
+        <h3 class="heading2 padding ">Initial-Investment(Rs):</h3>
+        <input type="text" class="input-box" id="num1" placeholder="Enter initial investment" />
     
         <h3 class="heading2">Annual Intrest Rate(%):</h3>
-        <input class="input-box" type="Intrest-Rate" id="num2"  
-        placeholder="Enter intrest rate" >
+        <input type="text" class="input-box" id="num2"placeholder="Enter intrest rate" />
          
         <h3 class="heading2">Number Of Years:</h3>
-        <input class="input-box" type="Investment-Year" id="num3"  
-        placeholder="Enter number of years" >
+        <input type ="text" class="input-box" id="num3" placeholder="Enter number of years" />
 
-        <button class="btn">Calculate SI</button>
+        <p class="result heading2" id="res">Result:</p>
+
+        <button type="button" class="btn" onclick="calculator()">Calculate SI</button>
         </div>
 
-    
+    <script>
+      function calculator()
+      {
+        const input1 = document.getElementById("num1");
+        const input2 = document.getElementById("num2");
+        const input3 = document.getElementById("num3");
+
+        const SI = parseInt(input1.value) * parseInt(input2.value) * parseInt(input3.value)/100;
+        const resElement = document.getElementById("res");
+        resElement.innertext = `Result:${SI}`;
+
+
+      }
+    </script>
 </body>
 </html>
